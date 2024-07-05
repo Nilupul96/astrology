@@ -26,7 +26,8 @@ class ConnectivityManager {
     return Future.value(false);
   }
 
-  initializeConnectivityStream(Function(ConnectivityResult) onData) async {
+  initializeConnectivityStream(
+      Function(List<ConnectivityResult>) onData) async {
     if (_subscription != null) return;
     Log.info("subscribe for connectivity");
     _subscription = _connectivity.onConnectivityChanged.listen(onData);

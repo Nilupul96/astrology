@@ -1,4 +1,5 @@
 import 'package:astrology/core/app_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +9,7 @@ import 'core/injection_container.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await initializeDependencies();
   runApp(const MyApp());
 }
@@ -20,14 +22,12 @@ class MyApp extends StatelessWidget {
         designSize: const Size(392, 783),
         minTextAdapt: true,
         builder: (_, child) {
-          return MultiProvider(
-              providers: AppProviders.providers,
-              child: MaterialApp.router(
-                title: 'Template',
-                theme: AppTheme.appLightTheme,
-                darkTheme: AppTheme.darkTheme,
-                routerConfig: AppRoutes.router,
-              ));
+          return MaterialApp.router(
+            title: 'Template',
+            theme: AppTheme.appLightTheme,
+            darkTheme: AppTheme.darkTheme,
+            routerConfig: AppRoutes.router,
+          );
         });
   }
 }

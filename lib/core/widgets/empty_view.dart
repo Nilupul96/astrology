@@ -10,7 +10,6 @@ class EmptyView extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          SvgPicture.asset(AppAssets.emptyView),
           Text(
             'Oops! No result\nto show.',
             textAlign: TextAlign.center,

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "266095382738",
+    "project_id": "astrology-1f677",
+    "storage_bucket": "astrology-1f677.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266095382738:android:e8f6e0432c96bb2363dd0b",
+        "android_client_info": {
+          "package_name": "com.astrology.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266095382738-pmms9059c0laafva0j6plthag4ucd9tp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.astrology.app",
+            "certificate_hash": "efb665090f8299e311642d774d0989b51cce6206"
+          }
+        },
+        {
+          "client_id": "266095382738-mgq7lqis45mg30ve7fj2vcrhci9uqaov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuVaBXrEQxVPvAMPRI-ko5jSWxph30zxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266095382738-mgq7lqis45mg30ve7fj2vcrhci9uqaov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
