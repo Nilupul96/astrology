@@ -6,3 +6,5 @@ abstract class LoginEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class SignInWithGoogle extends LoginEvent {}
