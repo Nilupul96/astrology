@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/app_routes.dart';
 import 'core/injection_container.dart';
 import 'features/login/presentation/bloc/login_bloc.dart';
+import 'features/splash/presentation/bloc/splash_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,10 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         builder: (_, child) {
           return MultiBlocProvider(
-            providers: [BlocProvider<LoginBloc>(create: (context) => sl())],
+            providers: [
+              BlocProvider<LoginBloc>(create: (context) => sl()),
+              BlocProvider<SplashBloc>(create: (context) => sl())
+            ],
             child: MaterialApp.router(
               title: 'Template',
               theme: AppTheme.appLightTheme,

@@ -22,7 +22,7 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen>
     with TickerProviderStateMixin {
   late final AnimationController _controller =
-      AnimationController(duration: Duration(seconds: 60), vsync: this)
+      AnimationController(duration: const Duration(seconds: 60), vsync: this)
         ..repeat(reverse: false);
 
   late final Animation<double> _animation =

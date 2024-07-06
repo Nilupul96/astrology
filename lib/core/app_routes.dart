@@ -7,7 +7,7 @@ import 'helpers/navigation_service.dart';
 
 class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: '/login',
+    initialLocation: '/',
     navigatorKey: NavigationService.navigatorKey,
     routes: [
       GoRoute(
@@ -22,7 +22,7 @@ class AppRoutes {
       ),
       GoRoute(
         name: HomeScreen.routeName,
-        path: '/',
+        path: '/home',
         builder: (context, state) => const HomeScreen(),
       ),
     ],
