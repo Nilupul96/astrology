@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/app_routes.dart';
 import 'core/injection_container.dart';
 import 'features/login/presentation/bloc/login_bloc.dart';
+import 'features/settings/presentation/bloc/settings_bloc.dart';
 import 'features/splash/presentation/bloc/splash_bloc.dart';
 
 void main() async {
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
           return MultiBlocProvider(
             providers: [
               BlocProvider<LoginBloc>(create: (context) => sl()),
-              BlocProvider<SplashBloc>(create: (context) => sl())
+              BlocProvider<SplashBloc>(create: (context) => sl()),
+              BlocProvider<SettingsBloc>(create: (context) => sl())
             ],
             child: MaterialApp.router(
               title: 'Template',

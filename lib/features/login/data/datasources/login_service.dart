@@ -50,19 +50,5 @@ class LoginServiceImpl implements LoginService {
 
   Future<void> createUserAccount(User user) async {}
 
-  void handleSignOut() async {
-    GoogleSignIn googleSignIn = GoogleSignIn(
-      scopes: [
-        'email',
-        'profile',
-        'openid',
-      ],
-    );
-    bool isGoogleLogged = await googleSignIn.isSignedIn();
-    if (isGoogleLogged) {
-      googleSignIn.disconnect().whenComplete(() {
-        Log.debug("google logged out");
-      });
-    }
-  }
+  
 }

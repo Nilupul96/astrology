@@ -2,14 +2,11 @@ import 'package:astrology/core/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class AppTheme {
   static ThemeData appLightTheme = ThemeData(
       brightness: Brightness.light,
       fontFamily: 'Montserrat',
-      // colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryRed),
       useMaterial3: true,
-      scaffoldBackgroundColor: Colors.white,
       iconTheme: IconThemeData(color: AppColors.black),
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: AppColors.white),
@@ -26,7 +23,7 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.black,
       iconTheme: const IconThemeData(color: Colors.white),
       appBarTheme: AppBarTheme(
-          backgroundColor: AppColors.black,
+          backgroundColor: Colors.transparent,
           centerTitle: true,
           titleTextStyle: TextStyle(
               fontFamily: 'Montserrat',
@@ -70,11 +67,10 @@ class AppTheme {
           fontSize: 14.sp));
 
   static AppBarTheme appBarTheme() => AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
       centerTitle: true,
       titleTextStyle: TextStyle(
-          fontFamily: 'Montserrat',
           fontWeight: FontWeight.w700,
-          color: AppColors.black,
-          fontSize: 16.sp));
+          color: AppColors.white,
+          fontSize: 24.sp));
 }

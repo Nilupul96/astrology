@@ -1,4 +1,5 @@
 import 'package:astrology/features/login/presentation/pages/sign_in_screen.dart';
+import 'package:astrology/features/settings/presentation/pages/settings_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/home/presentation/pages/home_screen.dart';
@@ -24,6 +25,11 @@ class AppRoutes {
         name: HomeScreen.routeName,
         path: '/home',
         builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        name: SettingsScreen.routeName,
+        path: '/settings',
+        builder: (context, state) => const SettingsScreen(),
       ),
     ],
   );
