@@ -2,7 +2,6 @@ import 'package:astrology/core/app_colors.dart';
 import 'package:astrology/core/widgets/main_btn.dart';
 import 'package:astrology/core/widgets/progress_dialog.dart';
 import 'package:astrology/core/widgets/snackbar_dialog.dart';
-import 'package:astrology/features/login/presentation/pages/sign_in_screen.dart';
 import 'package:astrology/features/settings/presentation/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,10 +9,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/widgets/screen_bg.dart';
+import '../../../auth/presentation/pages/sign_in_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const routeName = "/settings-screen";
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -22,6 +22,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   late ProgressDialog _progressDialog;
 
+  @override
   void initState() {
     _progressDialog = ProgressDialog(context);
     super.initState();

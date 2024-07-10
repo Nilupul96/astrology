@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/app_assets.dart';
-import '../bloc/login_bloc.dart';
+import '../bloc/auth_bloc.dart';
 
 class SignInScreen extends StatefulWidget {
   static const routeName = "/sign-in-screen";
@@ -21,6 +21,7 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen>
     with TickerProviderStateMixin {
+  late ProgressDialog progressDialog;
   late final AnimationController _controller =
       AnimationController(duration: const Duration(seconds: 60), vsync: this)
         ..repeat(reverse: false);
@@ -29,28 +30,35 @@ class _SignInScreenState extends State<SignInScreen>
       CurvedAnimation(parent: _controller, curve: Curves.linear);
 
   @override
+  void initState() {
+    progressDialog = ProgressDialog(context);
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
 
   Future<void> signInWithGoogle() async {
-    context.read<LoginBloc>().add(SignInWithGoogle());
+    context.read<AuthBloc>().add(SignInWithGoogle());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: BlocConsumer<LoginBloc, LoginState>(
+        body: BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is LoginLoading) {
-          ProgressDialog progressDialog = ProgressDialog(context);
+        if (state is AuthLoading) {
           progressDialog.show();
         }
-        if (state is LoginInSuccess) {
-          context.goNamed(HomeScreen.routeName);
+        if (state is AuthSuccess) {
+          progressDialog.hide();
+          context.goNamed(HomeScreen.routeName, extra: state.user);
         }
-        if (state is LogInError) {
+        if (state is AuthError) {
+          progressDialog.hide();
           SnackBarDialog.showSnackBar(context, '${state.exception.message}');
         }
       },

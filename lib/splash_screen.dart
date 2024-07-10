@@ -1,12 +1,14 @@
 import 'package:astrology/core/app_assets.dart';
+import 'package:astrology/core/helpers/navigation_service.dart';
+import 'package:astrology/core/widgets/snackbar_dialog.dart';
+import 'package:astrology/features/auth/domain/entities/user.dart';
 import 'package:astrology/features/home/presentation/pages/home_screen.dart';
-import 'package:astrology/features/login/presentation/pages/sign_in_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import '../bloc/splash_bloc.dart';
+import 'features/auth/presentation/bloc/auth_bloc.dart';
+import 'features/auth/presentation/pages/sign_in_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   static const routeName = "/splash-screen";
@@ -24,14 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> checkCurrentUserState() async {
-    Future.delayed(Duration(seconds: 2), () {
-      context.read<SplashBloc>().add(CheckUserAuthStateEvent());
+    Future.delayed(const Duration(seconds: 2), () {
+      context.read<AuthBloc>().add(ListenAuthStateChanges());
     });
   }
 
-  void manageUserNavigation(User? user) {
+  void manageUserNavigation(UserEntity? user) {
     if (user != null) {
-      context.pushReplacementNamed(HomeScreen.routeName);
+      context.pushReplacementNamed(HomeScreen.routeName, extra: user);
       return;
     }
     context.pushReplacementNamed(SignInScreen.routeName);
@@ -40,10 +42,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: BlocConsumer<SplashBloc, SplashState>(
+        body: BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is SplashSusses) {
+        if (state is AuthStateSuccess) {
+          context.read<AuthBloc>().add(FetchUserProfile(state.user.uid));
+        }
+
+        if (state is AuthSuccess) {
           manageUserNavigation(state.user);
+        }
+        if (state is AuthError) {
+          SnackBarDialog.showSnackBar(context, '${state.exception.message}');
         }
       },
       builder: (context, state) {

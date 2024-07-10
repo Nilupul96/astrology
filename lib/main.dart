@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/app_routes.dart';
 import 'core/injection_container.dart';
-import 'features/login/presentation/bloc/login_bloc.dart';
+import 'features/auth/presentation/bloc/auth_bloc.dart';
+import 'features/home/presentation/bloc/home_bloc.dart';
 import 'features/settings/presentation/bloc/settings_bloc.dart';
-import 'features/splash/presentation/bloc/splash_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,9 +26,9 @@ class MyApp extends StatelessWidget {
         builder: (_, child) {
           return MultiBlocProvider(
             providers: [
-              BlocProvider<LoginBloc>(create: (context) => sl()),
-              BlocProvider<SplashBloc>(create: (context) => sl()),
-              BlocProvider<SettingsBloc>(create: (context) => sl())
+              BlocProvider<AuthBloc>(create: (context) => sl()),
+              BlocProvider<SettingsBloc>(create: (context) => sl()),
+              BlocProvider<HomeBloc>(create: (context) => sl()),
             ],
             child: MaterialApp.router(
               title: 'Template',

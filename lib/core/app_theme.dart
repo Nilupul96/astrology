@@ -53,21 +53,17 @@ class AppTheme {
 
   static TextTheme textTheme() => TextTheme(
       displayLarge: TextStyle(
-          fontFamily: 'Montserrat',
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-          fontSize: 20.sp),
+          fontWeight: FontWeight.bold, color: AppColors.white, fontSize: 24.sp),
       displayMedium: TextStyle(
-          fontFamily: 'Montserrat',
-          fontWeight: FontWeight.w700,
-          fontSize: 16.sp),
+          fontWeight: FontWeight.w700, fontSize: 16.sp, color: AppColors.white),
       displaySmall: TextStyle(
-          fontFamily: 'Montserrat',
           fontWeight: FontWeight.w400,
-          fontSize: 14.sp));
+          fontSize: 14.sp,
+          color: AppColors.white));
 
   static AppBarTheme appBarTheme() => AppBarTheme(
       backgroundColor: Colors.transparent,
+      iconTheme: IconThemeData(color: AppColors.white),
       centerTitle: true,
       titleTextStyle: TextStyle(
           fontWeight: FontWeight.w700,
