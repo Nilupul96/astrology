@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
             child: MaterialApp.router(
               title: 'Template',
               theme: AppTheme.appLightTheme,
+              themeMode: ThemeMode.dark,
               darkTheme: AppTheme.darkTheme,
               routerConfig: AppRoutes.router,
             ),

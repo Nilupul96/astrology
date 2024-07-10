@@ -68,7 +68,7 @@ class _MainBtnState extends State<MainBtn> {
                         style: Theme.of(context)
                             .textTheme
                             .labelLarge
-                            ?.copyWith(color: AppColors.white)),
+                            ?.copyWith(color: AppColors.black)),
                     if (widget.icon != null)
                       Padding(
                           padding: EdgeInsets.symmetric(

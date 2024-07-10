@@ -1,4 +1,5 @@
 import 'package:astrology/features/auth/domain/entities/user.dart';
+import 'package:astrology/features/auth/presentation/pages/add_birthday_screen.dart';
 import 'package:astrology/features/settings/presentation/pages/settings_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,7 +10,7 @@ import 'helpers/navigation_service.dart';
 
 class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: '/',
+    initialLocation: '/add-birthday',
     navigatorKey: NavigationService.navigatorKey,
     routes: [
       GoRoute(
@@ -21,6 +22,11 @@ class AppRoutes {
         name: SignInScreen.routeName,
         path: '/login',
         builder: (context, state) => const SignInScreen(),
+      ),
+      GoRoute(
+        name: AddBirthDayScreen.routeName,
+        path: '/add-birthday',
+        builder: (context, state) => const AddBirthDayScreen(),
       ),
       GoRoute(
         name: HomeScreen.routeName,

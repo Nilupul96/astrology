@@ -1,4 +1,5 @@
 import 'package:astrology/core/app_colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,38 +16,34 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
           fillColor: AppColors.white,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(16))));
+
   static ThemeData darkTheme = ThemeData(
       brightness: Brightness.dark,
-      fontFamily: 'Montserrat',
-      // colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryRed),
-      useMaterial3: true,
       scaffoldBackgroundColor: AppColors.black,
       iconTheme: const IconThemeData(color: Colors.white),
       appBarTheme: AppBarTheme(
           backgroundColor: Colors.transparent,
           centerTitle: true,
-          titleTextStyle: TextStyle(
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w700,
-              fontSize: 16.sp)),
+          titleTextStyle:
+              TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp)),
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: AppColors.black),
       textTheme: TextTheme(
           displayLarge: TextStyle(
-              fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold,
               color: AppColors.white,
-              fontSize: 20.sp),
+              fontSize: 24.sp),
           displayMedium: TextStyle(
-              fontFamily: 'Montserrat',
               fontWeight: FontWeight.w700,
               color: AppColors.white,
               fontSize: 16.sp),
           displaySmall: TextStyle(
-              fontFamily: 'Montserrat',
               fontWeight: FontWeight.w400,
               color: AppColors.white,
               fontSize: 14.sp)),
+      cupertinoOverrideTheme: CupertinoThemeData(
+        primaryColor: Colors.white,
+      ),
       inputDecorationTheme: InputDecorationTheme(
           fillColor: AppColors.black,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(16))));
