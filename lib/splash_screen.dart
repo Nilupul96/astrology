@@ -1,5 +1,4 @@
 import 'package:astrology/core/app_assets.dart';
-import 'package:astrology/core/helpers/navigation_service.dart';
 import 'package:astrology/core/widgets/snackbar_dialog.dart';
 import 'package:astrology/features/auth/domain/entities/user.dart';
 import 'package:astrology/features/home/presentation/pages/home_screen.dart';
@@ -47,12 +46,15 @@ class _SplashScreenState extends State<SplashScreen> {
         if (state is AuthStateSuccess) {
           context.read<AuthBloc>().add(FetchUserProfile(state.user.uid));
         }
-
         if (state is AuthSuccess) {
           manageUserNavigation(state.user);
         }
+        if (state is AuthStateError) {
+          context.goNamed(SignInScreen.routeName);
+        }
         if (state is AuthError) {
           SnackBarDialog.showSnackBar(context, '${state.exception.message}');
+          context.goNamed(SignInScreen.routeName);
         }
       },
       builder: (context, state) {

@@ -68,12 +68,20 @@ class AuthServiceImpl implements AuthService {
             'profileCompleted': false,
             'gender': null,
             'birthDate': null,
+            'birthTime': null
           });
         } else {
           Log.debug('Already have user account');
         }
         Log.info("user data --->${doc.data()}");
-        return UserData.fromJson(doc.data() as Map<String, dynamic>);
+        if (doc.data() != null) {
+          return UserData.fromJson(doc.data() as Map<String, dynamic>);
+        }
+        return UserData(
+            email: credential.user!.email!,
+            userId: credential.user!.uid,
+            name: credential.user!.displayName,
+            profileCompleted: null);
       }
       return null;
     } catch (e) {

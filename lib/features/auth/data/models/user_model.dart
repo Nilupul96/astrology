@@ -6,6 +6,7 @@ class UserData extends UserEntity {
       required super.userId,
       super.name,
       super.birthDay,
+      super.birthTime,
       super.gender,
       super.profileCompleted});
 
@@ -16,6 +17,7 @@ class UserData extends UserEntity {
         name: json['name'],
         gender: 'gender',
         birthDay: json['birthday'],
+        birthTime: json['birthTime'],
         profileCompleted: json['profileCompleted']);
   }
 }
