@@ -1,13 +1,5 @@
-/*
-  This file included the icons that we used within the application.
-  add the icons as below. 
-
-  Ex- static String get customIcon => "lib/assets/icons/custom-icon-path";;
-
-*/
-
 class AppIcon {
-  static String get googleIcon => "lib/assets/icons/google.svg";
+  static String get googleIcon => "lib/assets/icons/google.png";
 
   static String get appleIcon => "lib/assets/icons/apple.svg";
 

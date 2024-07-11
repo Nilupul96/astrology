@@ -1,15 +1,13 @@
 import 'package:astrology/core/app_colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class AppTheme {
   static ThemeData appLightTheme = ThemeData(
       brightness: Brightness.light,
       fontFamily: 'Montserrat',
-      // colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryRed),
       useMaterial3: true,
-      scaffoldBackgroundColor: Colors.white,
       iconTheme: IconThemeData(color: AppColors.black),
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: AppColors.white),
@@ -18,63 +16,70 @@ class AppTheme {
       inputDecorationTheme: InputDecorationTheme(
           fillColor: AppColors.white,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(16))));
+
   static ThemeData darkTheme = ThemeData(
       brightness: Brightness.dark,
-      fontFamily: 'Montserrat',
-      // colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryRed),
-      useMaterial3: true,
       scaffoldBackgroundColor: AppColors.black,
       iconTheme: const IconThemeData(color: Colors.white),
       appBarTheme: AppBarTheme(
-          backgroundColor: AppColors.black,
+          backgroundColor: Colors.transparent,
           centerTitle: true,
-          titleTextStyle: TextStyle(
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w700,
-              fontSize: 16.sp)),
+          titleTextStyle:
+              TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp)),
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: AppColors.black),
       textTheme: TextTheme(
           displayLarge: TextStyle(
-              fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold,
               color: AppColors.white,
-              fontSize: 20.sp),
+              fontSize: 24.sp),
           displayMedium: TextStyle(
-              fontFamily: 'Montserrat',
               fontWeight: FontWeight.w700,
               color: AppColors.white,
               fontSize: 16.sp),
           displaySmall: TextStyle(
-              fontFamily: 'Montserrat',
               fontWeight: FontWeight.w400,
               color: AppColors.white,
               fontSize: 14.sp)),
+      cupertinoOverrideTheme: const CupertinoThemeData(
+        primaryColor: Colors.white,
+      ),
+      canvasColor: AppColors.lightPurple,
+      dropdownMenuTheme: DropdownMenuThemeData(),
       inputDecorationTheme: InputDecorationTheme(
-          fillColor: AppColors.black,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16))));
+          fillColor: Colors.transparent,
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.primaryYellow)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.grey)),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.grey)),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.red)),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.red))));
 
   static TextTheme textTheme() => TextTheme(
       displayLarge: TextStyle(
-          fontFamily: 'Montserrat',
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-          fontSize: 20.sp),
+          fontWeight: FontWeight.bold, color: AppColors.white, fontSize: 24.sp),
       displayMedium: TextStyle(
-          fontFamily: 'Montserrat',
-          fontWeight: FontWeight.w700,
-          fontSize: 16.sp),
+          fontWeight: FontWeight.w700, fontSize: 16.sp, color: AppColors.white),
       displaySmall: TextStyle(
-          fontFamily: 'Montserrat',
           fontWeight: FontWeight.w400,
-          fontSize: 14.sp));
+          fontSize: 14.sp,
+          color: AppColors.white));
 
   static AppBarTheme appBarTheme() => AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
+      iconTheme: IconThemeData(color: AppColors.white),
       centerTitle: true,
       titleTextStyle: TextStyle(
-          fontFamily: 'Montserrat',
           fontWeight: FontWeight.w700,
-          color: AppColors.black,
-          fontSize: 16.sp));
+          color: AppColors.white,
+          fontSize: 24.sp));
 }
