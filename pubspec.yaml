@@ -59,6 +59,7 @@ flutter:
     - lib/assets/
     - lib/assets/images/
     - lib/assets/icons/
+    - lib/assets/images/zodiac/
 
 
   # fonts:

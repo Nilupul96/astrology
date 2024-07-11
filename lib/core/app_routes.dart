@@ -1,5 +1,7 @@
 import 'package:astrology/features/auth/domain/entities/user.dart';
-import 'package:astrology/features/auth/presentation/pages/add_birthday_screen.dart';
+import 'package:astrology/features/onboarding/presentation/pages/add_birthday_screen.dart';
+import 'package:astrology/features/onboarding/presentation/pages/set_name_screen.dart';
+import 'package:astrology/features/onboarding/presentation/pages/set_zodiac_sign_screen.dart';
 import 'package:astrology/features/settings/presentation/pages/settings_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,7 +12,7 @@ import 'helpers/navigation_service.dart';
 
 class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: '/add-birthday',
+    initialLocation: '/set-name',
     navigatorKey: NavigationService.navigatorKey,
     routes: [
       GoRoute(
@@ -27,6 +29,16 @@ class AppRoutes {
         name: AddBirthDayScreen.routeName,
         path: '/add-birthday',
         builder: (context, state) => const AddBirthDayScreen(),
+      ),
+      GoRoute(
+        name: SetNameScreen.routeName,
+        path: '/set-name',
+        builder: (context, state) => const SetNameScreen(),
+      ),
+      GoRoute(
+        name: SetZodiacScreen.routeName,
+        path: '/set-zodiac',
+        builder: (context, state) => const SetZodiacScreen(),
       ),
       GoRoute(
         name: HomeScreen.routeName,

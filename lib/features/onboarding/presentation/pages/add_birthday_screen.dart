@@ -3,7 +3,6 @@ import 'package:astrology/core/widgets/screen_bg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/app_colors.dart';
 
 class AddBirthDayScreen extends StatefulWidget {
@@ -33,8 +32,8 @@ class _AddBirthDayScreenState extends State<AddBirthDayScreen> {
               Align(
                   alignment: Alignment.centerLeft,
                   child: IconButton(
-                      onPressed: () {}, icon: Icon(Icons.arrow_back))),
-              const RSizedBox(height: 50),
+                      onPressed: () {}, icon: const Icon(Icons.arrow_back))),
+              const RSizedBox(height: 20),
               Text(
                 'Date Of Birth',
                 style: Theme.of(context).textTheme.displayLarge,

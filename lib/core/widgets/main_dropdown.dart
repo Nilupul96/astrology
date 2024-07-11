@@ -1,3 +1,4 @@
+import 'package:astrology/core/zodiac_sign_model.dart';
 import 'package:flutter/material.dart';
 import '../helpers/app_logger.dart';
 import '../app_colors.dart';
@@ -27,9 +28,8 @@ class MainDropDown<T> extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: AppColors.bgBlue,
-        border: Border.all(
-            color: isSelected ? AppColors.bgBlue : Colors.transparent),
+        color: Colors.transparent,
+        border: Border.all(color: AppColors.white),
       ),
       child: DropdownButton<T>(
         borderRadius: BorderRadius.circular(8),
@@ -46,15 +46,17 @@ class MainDropDown<T> extends StatelessWidget {
             obj = value as String;
             lbl = obj;
           }
+          if (T == ZodiacSign) {
+            obj = value as ZodiacSign;
+            lbl = obj.name;
+          }
           return DropdownMenuItem<T>(
             value: value,
             child: Text(
               lbl,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: Colors.black.withOpacity(0.5),
-              ),
+              style: Theme.of(context).textTheme.labelMedium,
             ),
           );
         }).toList(),
@@ -72,7 +74,7 @@ class MainDropDown<T> extends StatelessWidget {
           style: TextStyle(
             color: defaultValue == hint
                 ? Colors.black.withOpacity(0.5)
-                : Colors.black,
+                : AppColors.white,
             fontSize: 14,
             fontWeight: FontWeight.w400,
           ),

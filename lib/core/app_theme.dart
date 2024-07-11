@@ -41,12 +41,28 @@ class AppTheme {
               fontWeight: FontWeight.w400,
               color: AppColors.white,
               fontSize: 14.sp)),
-      cupertinoOverrideTheme: CupertinoThemeData(
+      cupertinoOverrideTheme: const CupertinoThemeData(
         primaryColor: Colors.white,
       ),
+      canvasColor: AppColors.lightPurple,
+      dropdownMenuTheme: DropdownMenuThemeData(),
       inputDecorationTheme: InputDecorationTheme(
-          fillColor: AppColors.black,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16))));
+          fillColor: Colors.transparent,
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.primaryYellow)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.grey)),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.grey)),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.red)),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.red))));
 
   static TextTheme textTheme() => TextTheme(
       displayLarge: TextStyle(
