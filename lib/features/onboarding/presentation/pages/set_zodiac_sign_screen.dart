@@ -1,6 +1,7 @@
 import 'package:astrology/core/widgets/main_dropdown.dart';
 import 'package:astrology/core/widgets/screen_bg.dart';
 import 'package:astrology/core/zodiac_sign_model.dart';
+import 'package:astrology/features/onboarding/presentation/pages/onboarding_succsess_screen.dart';
 import 'package:astrology/features/onboarding/presentation/widgets/stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -33,7 +34,7 @@ class _SetZodiacScreenState extends State<SetZodiacScreen> {
                 children: [
                   const RSizedBox(height: 40),
                   const CustomStepper(
-                    value: 0.5,
+                    value: 0.6,
                   ),
                   const RSizedBox(height: 10),
                   Align(
@@ -78,7 +79,9 @@ class _SetZodiacScreenState extends State<SetZodiacScreen> {
                 child: MainBtn(
                     lbl: 'Continue',
                     bgColor: AppColors.primaryYellow,
-                    onClick: () async {}),
+                    onClick: () async {
+                      context.pushNamed(OnboardingSuccessScreen.routeName);
+                    }),
               ),
             ),
           ],

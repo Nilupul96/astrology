@@ -1,5 +1,6 @@
 import 'package:astrology/features/auth/domain/entities/user.dart';
 import 'package:astrology/features/onboarding/presentation/pages/add_birthday_screen.dart';
+import 'package:astrology/features/onboarding/presentation/pages/onboarding_succsess_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/set_name_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/set_zodiac_sign_screen.dart';
 import 'package:astrology/features/settings/presentation/pages/settings_screen.dart';
@@ -39,6 +40,11 @@ class AppRoutes {
         name: SetZodiacScreen.routeName,
         path: '/set-zodiac',
         builder: (context, state) => const SetZodiacScreen(),
+      ),
+      GoRoute(
+        name: OnboardingSuccessScreen.routeName,
+        path: '/onboarding-success',
+        builder: (context, state) => const OnboardingSuccessScreen(),
       ),
       GoRoute(
         name: HomeScreen.routeName,
