@@ -104,4 +104,10 @@ class AppConst {
       'type': ZodiacType.PISCES
     }
   ];
+  static List<String> HOROSCOPE_OPTION_LIST = [
+    'Today',
+    'Tomorrow',
+    'Week',
+    'Month'
+  ];
 }

@@ -4,6 +4,7 @@ import 'package:astrology/features/onboarding/presentation/pages/onboarding_succ
 import 'package:astrology/features/onboarding/presentation/pages/set_name_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/set_zodiac_sign_screen.dart';
 import 'package:astrology/features/settings/presentation/pages/settings_screen.dart';
+import 'package:astrology/init_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/auth/presentation/pages/sign_in_screen.dart';
@@ -13,7 +14,7 @@ import 'helpers/navigation_service.dart';
 
 class AppRoutes {
   static GoRouter router = GoRouter(
-    initialLocation: '/set-name',
+    initialLocation: '/',
     navigatorKey: NavigationService.navigatorKey,
     routes: [
       GoRoute(
@@ -45,6 +46,11 @@ class AppRoutes {
         name: OnboardingSuccessScreen.routeName,
         path: '/onboarding-success',
         builder: (context, state) => const OnboardingSuccessScreen(),
+      ),
+      GoRoute(
+        name: InitScreen.routeName,
+        path: '/init',
+        builder: (context, state) => const InitScreen(),
       ),
       GoRoute(
         name: HomeScreen.routeName,
