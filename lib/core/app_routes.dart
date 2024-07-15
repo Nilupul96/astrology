@@ -3,6 +3,9 @@ import 'package:astrology/features/onboarding/presentation/pages/add_birthday_sc
 import 'package:astrology/features/onboarding/presentation/pages/onboarding_succsess_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/set_name_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/set_zodiac_sign_screen.dart';
+import 'package:astrology/features/predictions/people_predictions/presentation/pages/people_prediction_screen.dart';
+import 'package:astrology/features/predictions/people_predictions/presentation/pages/zodiac_list_screen.dart';
+import 'package:astrology/features/predictions/prediction_init_screen.dart';
 import 'package:astrology/features/settings/presentation/pages/settings_screen.dart';
 import 'package:astrology/init_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -59,6 +62,23 @@ class AppRoutes {
           user: state.extra as UserEntity?,
         ),
       ),
+      GoRoute(
+          name: PredictionInitScreen.routeName,
+          path: '/predictions',
+          builder: (context, state) => const PredictionInitScreen(),
+          routes: [
+            GoRoute(
+              name: ZodiacSignListScreen.routeName,
+              path: 'zodiac-list',
+              builder: (context, state) => const ZodiacSignListScreen(),
+            ),
+            GoRoute(
+              name: PeoplePredictionsResultScreen.routeName,
+              path: 'people-predictions',
+              builder: (context, state) =>
+                  const PeoplePredictionsResultScreen(),
+            ),
+          ]),
       GoRoute(
         name: SettingsScreen.routeName,
         path: '/settings',

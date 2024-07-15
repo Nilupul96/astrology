@@ -2,7 +2,8 @@ import 'package:astrology/core/app_colors.dart';
 import 'package:astrology/features/home/presentation/pages/home_screen.dart';
 import 'package:astrology/features/settings/presentation/pages/settings_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'features/predictions/prediction_init_screen.dart';
 
 class InitScreen extends StatefulWidget {
   static const routeName = "/init-screen";
@@ -14,8 +15,12 @@ class InitScreen extends StatefulWidget {
 
 class _InitScreenState extends State<InitScreen> {
   int currentIndex = 0;
-  final List<Widget> _screens = [const HomeScreen(), const SettingsScreen()];
-  PageController _pageController = PageController();
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const PredictionInitScreen(),
+    const SettingsScreen()
+  ];
+  final PageController _pageController = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +46,9 @@ class _InitScreenState extends State<InitScreen> {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "Settings")
+                icon: Icon(Icons.visibility), label: "Predictions"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: "Settings"),
           ],
         ));
   }

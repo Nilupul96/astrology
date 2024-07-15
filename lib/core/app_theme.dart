@@ -22,7 +22,11 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.black,
       iconTheme: const IconThemeData(color: Colors.white),
       appBarTheme: AppBarTheme(
-          backgroundColor: Colors.transparent,
+          backgroundColor: AppColors.lightPurple,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(30),
+          )),
           centerTitle: true,
           titleTextStyle:
               TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp)),
