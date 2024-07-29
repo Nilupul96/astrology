@@ -85,7 +85,9 @@ class AppRoutes {
               name: PeoplePredictionsResultScreen.routeName,
               path: 'people-predictions',
               builder: (context, state) => PeoplePredictionsResultScreen(
-                  zodiacSign: state.extra as ZodiacSign),
+                zodiacSign: (state.extra as Map)['sign'],
+                personalBehavior: (state.extra as Map)['behavior'],
+              ),
             ),
           ]),
       GoRoute(

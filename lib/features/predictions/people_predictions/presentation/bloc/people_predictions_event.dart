@@ -6,3 +6,5 @@ abstract class PeoplePredictionsEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class FetchPeopleBehaviorsList extends PeoplePredictionsEvent {}

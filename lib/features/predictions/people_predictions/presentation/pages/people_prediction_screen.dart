@@ -3,13 +3,16 @@ import 'package:astrology/core/widgets/screen_bg.dart';
 import 'package:astrology/core/zodiac_sign_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../domain/entities/personal_behavior.dart';
+import '../widgets/build_info_tile.dart';
 import '../widgets/sign_details_component.dart';
 
 class PeoplePredictionsResultScreen extends StatefulWidget {
-  final ZodiacSign? zodiacSign;
   static const routeName = "/people-prediction-result-screen";
-  const PeoplePredictionsResultScreen({super.key, this.zodiacSign});
+  final ZodiacSign? zodiacSign;
+  final PersonalBehavior? personalBehavior;
+  const PeoplePredictionsResultScreen(
+      {super.key, this.zodiacSign, required this.personalBehavior});
 
   @override
   State<PeoplePredictionsResultScreen> createState() =>
@@ -32,35 +35,56 @@ class _PeoplePredictionsResultScreenState
                   )
                 : Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: Column(children: [
-                      const RSizedBox(
-                        height: 100,
-                      ),
-                      Hero(
-                        tag: widget.zodiacSign!.name,
-                        child: SizedBox(
-                          height: 250.h,
-                          child: Center(
-                            child: Image.asset(widget.zodiacSign!.image),
+                    child: SingleChildScrollView(
+                      physics: AlwaysScrollableScrollPhysics(),
+                      child: Column(children: [
+                        const RSizedBox(
+                          height: 100,
+                        ),
+                        Hero(
+                          tag: widget.zodiacSign!.name,
+                          child: SizedBox(
+                            height: 250.h,
+                            child: Center(
+                              child: Image.asset(widget.zodiacSign!.image),
+                            ),
                           ),
                         ),
-                      ),
-                      const RSizedBox(
-                        height: 20,
-                      ),
-                      SignDetailsComponent(
-                        title: "Planet",
-                        value: widget.zodiacSign!.planet,
-                      ),
-                      SignDetailsComponent(
-                        title: "Element",
-                        value: widget.zodiacSign!.element.displayName,
-                      ),
-                      SignDetailsComponent(
-                        title: "Symbol",
-                        value: widget.zodiacSign!.symbol,
-                      )
-                    ]),
+                        const RSizedBox(
+                          height: 20,
+                        ),
+                        SignDetailsComponent(
+                          title: "Planet",
+                          value: widget.zodiacSign!.planet,
+                        ),
+                        SignDetailsComponent(
+                          title: "Element",
+                          value: widget.zodiacSign!.element.displayName,
+                        ),
+                        SignDetailsComponent(
+                          title: "Symbol",
+                          value: widget.zodiacSign!.symbol,
+                        ),
+                        const RSizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          widget.personalBehavior!.general,
+                          textAlign: TextAlign.justify,
+                          style: Theme.of(context).textTheme.displaySmall,
+                        ),
+                        const RSizedBox(
+                          height: 20,
+                        ),
+                        ...widget.personalBehavior!.data.entries
+                            .map((e) => BuildInfoTile(
+                                  title: e.key,
+                                  body: e.value,
+                                ))
+                      ]),
+                    ),
                   )));
   }
+
+  buildData() {}
 }

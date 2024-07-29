@@ -33,15 +33,9 @@ class _PredictionInitScreenState extends State<PredictionInitScreen> {
           child: Column(
             children: [
               RSizedBox(
-                height: 100,
+                height: 20,
               ),
-              GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 8.0,
-                      crossAxisSpacing: 8.0,
-                      childAspectRatio: 0.8),
-                  padding: const EdgeInsets.all(8.0),
+              ListView.builder(
                   physics: const ClampingScrollPhysics(),
                   itemCount: AppConst.PREDICTIONS_MENU_LIST.length,
                   shrinkWrap: true,
@@ -58,12 +52,14 @@ class _PredictionInitScreenState extends State<PredictionInitScreen> {
                             borderRadius: BorderRadius.circular(16)),
                         elevation: 10,
                         child: Container(
+                          height: 200.h,
                           decoration: BoxDecoration(
                               color: AppColors.black,
-                              // image: DecorationImage(
-                              //     opacity: 0.3,
-                              //     image: AssetImage(AppAssets.onboarding2),
-                              //     fit: BoxFit.cover),
+                              image: DecorationImage(
+                                  opacity: 0.3,
+                                  image: AssetImage(AppConst
+                                      .PREDICTIONS_MENU_LIST[index]['image']),
+                                  fit: BoxFit.cover),
                               borderRadius: BorderRadius.circular(16)),
                           child: Center(
                             child: Hero(

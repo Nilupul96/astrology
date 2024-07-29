@@ -113,8 +113,8 @@ class AppConst {
   ];
   static List<Map<String, dynamic>> PREDICTIONS_MENU_LIST = [
     {
-      "name": "Human Behavior",
-      "image": AppAssets.aries,
+      "name": "Personalities",
+      "image": AppAssets.cardBg,
       "route": ZodiacSignListScreen.routeName
     },
     // {
