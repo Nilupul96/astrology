@@ -1,5 +1,4 @@
 import 'package:astrology/core/app_assets.dart';
-import 'package:astrology/features/predictions/features/people_predictions/presentation/bloc/people_predictions_bloc.dart';
 import 'package:astrology/features/predictions/people_predictions/presentation/pages/zodiac_list_screen.dart';
 
 import 'helpers/enum.dart';

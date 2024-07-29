@@ -20,6 +20,9 @@ class _HoroscopeSectionState extends State<HoroscopeSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _categoryMenuList(),
+        const RSizedBox(
+          height: 10,
+        ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Text(
@@ -35,8 +38,7 @@ class _HoroscopeSectionState extends State<HoroscopeSection> {
   Widget _categoryMenuList() {
     return Container(
       margin: const EdgeInsets.only(bottom: 5),
-      padding: EdgeInsets.only(top: 20.h, bottom: 10),
-      height: 70.h,
+      height: 50.h,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: AppConst.HOROSCOPE_OPTION_LIST.length,
@@ -44,28 +46,30 @@ class _HoroscopeSectionState extends State<HoroscopeSection> {
           physics: const ClampingScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              child: Container(
-                margin: EdgeInsets.only(left: 20.w),
-                decoration: BoxDecoration(
-                    color: selectedIndex == index
-                        ? AppColors.primaryYellow
-                        : AppColors.lightPurple,
-                    borderRadius: BorderRadius.circular(8)),
-                child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.h, vertical: 12.h),
-                  child: Text(
-                    AppConst.HOROSCOPE_OPTION_LIST[index],
-                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        color: selectedIndex != index
-                            ? Colors.white
-                            : Colors.black),
+            return Center(
+              child: InkWell(
+                onTap: () {
+                  setState(() {
+                    selectedIndex = index;
+                  });
+                },
+                child: Container(
+                  margin: EdgeInsets.only(left: 20.w),
+                  decoration: BoxDecoration(
+                      color: selectedIndex == index
+                          ? AppColors.primaryYellow
+                          : AppColors.lightPurple,
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20.h, vertical: 12.h),
+                    child: Text(
+                      AppConst.HOROSCOPE_OPTION_LIST[index],
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          color: selectedIndex != index
+                              ? Colors.white
+                              : Colors.black),
+                    ),
                   ),
                 ),
               ),

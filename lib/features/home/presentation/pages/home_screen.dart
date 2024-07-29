@@ -5,9 +5,11 @@ import 'package:astrology/features/home/presentation/widgets/horoscope_section.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../../auth/data/models/user_model.dart';
 import '../../../auth/domain/entities/user.dart';
+import '../../../auth/presentation/bloc/auth_bloc.dart';
 import '../bloc/home_bloc.dart';
+import '../widgets/custom_appbar.dart';
 
 class HomeScreen extends StatefulWidget {
   final UserEntity? user;
@@ -19,9 +21,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  UserData? user;
+  @override
+  void initState() {
+    user = (BlocProvider.of<AuthBloc>(context).state as AuthSuccess).user;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(),
+      extendBodyBehindAppBar: true,
       body: BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -33,21 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    RSizedBox(
-                      height: 40.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Good morning ${widget.user?.name}',
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.displayLarge,
-                        ),
-                      ),
-                    ),
+                    const RSizedBox(height: 130),
                     const CommonTitle(
                       title: "Horoscope",
                     ),

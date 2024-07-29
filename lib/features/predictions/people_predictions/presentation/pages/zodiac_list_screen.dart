@@ -1,5 +1,6 @@
 import 'package:astrology/core/widgets/screen_bg.dart';
 import 'package:astrology/features/predictions/people_predictions/presentation/pages/people_prediction_screen.dart';
+import 'package:astrology/features/predictions/people_predictions/presentation/widgets/zodiac_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -42,41 +43,13 @@ class _ZodiacSignListScreenState extends State<ZodiacSignListScreen> {
                   shrinkWrap: true,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
-                      onTap: () {
-                        context.pushNamed(
-                          PeoplePredictionsResultScreen.routeName,
-                        );
-                      },
-                      child: Card(
-                        color: Colors.red,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16)),
-                        elevation: 10,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: AppColors.black,
-                              image: DecorationImage(
-                                  opacity: 0.3,
-                                  image: AssetImage(
-                                      AppConst.zodiacSignList[index].image),
-                                  fit: BoxFit.cover),
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Center(
-                            child: Hero(
-                              tag: AppConst.zodiacSignList[index].name,
-                              child: Text(
-                                AppConst.zodiacSignList[index].name,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displayLarge!
-                                    .copyWith(color: AppColors.white),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
+                        onTap: () {
+                          context.pushNamed(
+                              PeoplePredictionsResultScreen.routeName,
+                              extra: AppConst.zodiacSignList[index]);
+                        },
+                        child: ZodiacListItem(
+                            zodiacSign: AppConst.zodiacSignList[index]));
                   }),
               const RSizedBox(
                 height: 100,

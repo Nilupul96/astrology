@@ -1,4 +1,6 @@
+import 'package:astrology/core/zodiac_sign_model.dart';
 import 'package:astrology/features/auth/domain/entities/user.dart';
+import 'package:astrology/features/home/presentation/pages/profile_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/add_birthday_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/onboarding_succsess_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/set_name_screen.dart';
@@ -63,6 +65,13 @@ class AppRoutes {
         ),
       ),
       GoRoute(
+        name: ProfileScreen.routeName,
+        path: '/profile',
+        builder: (context, state) => ProfileScreen(
+          user: state.extra as UserEntity,
+        ),
+      ),
+      GoRoute(
           name: PredictionInitScreen.routeName,
           path: '/predictions',
           builder: (context, state) => const PredictionInitScreen(),
@@ -75,8 +84,8 @@ class AppRoutes {
             GoRoute(
               name: PeoplePredictionsResultScreen.routeName,
               path: 'people-predictions',
-              builder: (context, state) =>
-                  const PeoplePredictionsResultScreen(),
+              builder: (context, state) => PeoplePredictionsResultScreen(
+                  zodiacSign: state.extra as ZodiacSign),
             ),
           ]),
       GoRoute(

@@ -38,7 +38,7 @@ class AppTheme {
               color: AppColors.white,
               fontSize: 24.sp),
           displayMedium: TextStyle(
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w500,
               color: AppColors.white,
               fontSize: 16.sp),
           displaySmall: TextStyle(
