@@ -6,13 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/app_colors.dart';
 import '../../../../../core/app_const.dart';
 import '../bloc/people_predictions_bloc.dart';
 
 class ZodiacSignListScreen extends StatefulWidget {
   static const routeName = "/zodiac-sign-list-screen";
-  const ZodiacSignListScreen({Key? key}) : super(key: key);
+  const ZodiacSignListScreen({super.key});
 
   @override
   State<ZodiacSignListScreen> createState() => _ZodiacSignListScreenState();

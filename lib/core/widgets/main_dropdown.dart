@@ -12,14 +12,14 @@ class MainDropDown<T> extends StatelessWidget {
   final bool isLoading;
 
   const MainDropDown({
-    Key? key,
+    super.key,
     required this.hint,
     required this.items,
     required this.onSelect,
     required this.defaultValue,
     this.isSelected = false,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class MainDropDown<T> extends StatelessWidget {
           Icons.keyboard_arrow_down_outlined,
         ),
         items: items.map((value) {
-          var obj;
+          Object obj;
           var lbl;
 
           if (T == String) {
@@ -48,7 +48,7 @@ class MainDropDown<T> extends StatelessWidget {
           }
           if (T == ZodiacSign) {
             obj = value as ZodiacSign;
-            lbl = obj.name;
+            lbl = (value as ZodiacSign).name;
           }
           return DropdownMenuItem<T>(
             value: value,

@@ -1,4 +1,3 @@
-import 'package:astrology/core/zodiac_sign_model.dart';
 import 'package:astrology/features/auth/domain/entities/user.dart';
 import 'package:astrology/features/home/presentation/pages/profile_screen.dart';
 import 'package:astrology/features/onboarding/presentation/pages/add_birthday_screen.dart';

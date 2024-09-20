@@ -32,7 +32,7 @@ class _PredictionInitScreenState extends State<PredictionInitScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              RSizedBox(
+              const RSizedBox(
                 height: 20,
               ),
               ListView.builder(

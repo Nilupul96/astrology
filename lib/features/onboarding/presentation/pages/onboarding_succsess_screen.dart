@@ -27,14 +27,14 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen> {
                 children: [
                   RSizedBox(
                       height: 120, child: Image.asset(AppAssets.addDateBg)),
-                  RSizedBox(
+                  const RSizedBox(
                     height: 70,
                   ),
                   Text(
                     "Congratulations!",
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
-                  RSizedBox(
+                  const RSizedBox(
                     height: 20,
                   ),
                   Text(
@@ -42,7 +42,7 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen> {
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
-                  RSizedBox(
+                  const RSizedBox(
                     height: 50,
                   ),
                   MainBtn(

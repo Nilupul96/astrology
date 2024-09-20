@@ -4,7 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../app_colors.dart';
 
 class ProgressView extends StatefulWidget {
-  const ProgressView({Key? key}) : super(key: key);
+  const ProgressView({super.key});
 
   @override
   _ProgressViewState createState() => _ProgressViewState();

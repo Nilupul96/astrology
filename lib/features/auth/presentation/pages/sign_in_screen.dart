@@ -3,7 +3,6 @@ import 'package:astrology/core/app_icons.dart';
 import 'package:astrology/core/widgets/main_btn.dart';
 import 'package:astrology/core/widgets/progress_dialog.dart';
 import 'package:astrology/core/widgets/snackbar_dialog.dart';
-import 'package:astrology/features/home/presentation/pages/home_screen.dart';
 import 'package:astrology/init_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

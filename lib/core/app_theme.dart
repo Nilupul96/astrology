@@ -49,7 +49,7 @@ class AppTheme {
         primaryColor: Colors.white,
       ),
       canvasColor: AppColors.lightPurple,
-      dropdownMenuTheme: DropdownMenuThemeData(),
+      dropdownMenuTheme: const DropdownMenuThemeData(),
       inputDecorationTheme: InputDecorationTheme(
           fillColor: Colors.transparent,
           focusedBorder: OutlineInputBorder(

@@ -19,7 +19,7 @@ class BuildInfoTile extends StatelessWidget {
               .displayMedium!
               .copyWith(color: AppColors.primaryYellow),
         ),
-        collapsed: Text(
+        collapsed: const Text(
           '',
           softWrap: true,
           maxLines: 2,

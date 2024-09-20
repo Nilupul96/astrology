@@ -24,18 +24,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
             children: [
               IconButton(
                   onPressed: () => context.pop(),
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.close,
                     size: 30,
                   )),
               Container(
-                margin: EdgeInsets.only(top: 50),
+                margin: const EdgeInsets.only(top: 50),
                 child: SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      RSizedBox(height: 40),
+                      const RSizedBox(height: 40),
                       Hero(
                         tag: "${widget.user.name}",
                         child: Center(

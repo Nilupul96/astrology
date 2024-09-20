@@ -10,12 +10,11 @@ class CommonRatingBar extends StatefulWidget {
   final double itemSize;
   final ValueSetter<double>? getRating;
   const CommonRatingBar(
-      {Key? key,
+      {super.key,
       this.initialRating = 0,
       this.isDisabled = true,
       this.itemSize = 35,
-      this.getRating})
-      : super(key: key);
+      this.getRating});
 
   @override
   State<CommonRatingBar> createState() => _CommonRatingBarState();

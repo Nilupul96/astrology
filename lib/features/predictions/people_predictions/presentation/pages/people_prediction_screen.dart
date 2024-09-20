@@ -36,7 +36,7 @@ class _PeoplePredictionsResultScreenState
                 : Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: SingleChildScrollView(
-                      physics: AlwaysScrollableScrollPhysics(),
+                      physics: const AlwaysScrollableScrollPhysics(),
                       child: Column(children: [
                         const RSizedBox(
                           height: 100,
