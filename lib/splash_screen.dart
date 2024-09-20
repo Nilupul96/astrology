@@ -1,7 +1,7 @@
 import 'package:astrology/core/app_assets.dart';
 import 'package:astrology/core/widgets/snackbar_dialog.dart';
 import 'package:astrology/features/auth/domain/entities/user.dart';
-import 'package:astrology/features/home/presentation/pages/home_screen.dart';
+import 'package:astrology/init_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void manageUserNavigation(UserEntity? user) {
     if (user != null) {
-      context.pushReplacementNamed(HomeScreen.routeName, extra: user);
+      context.pushReplacementNamed(InitScreen.routeName, extra: user);
       return;
     }
     context.pushReplacementNamed(SignInScreen.routeName);

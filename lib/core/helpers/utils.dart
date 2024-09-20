@@ -50,4 +50,17 @@ class Utils {
 
   static getFormattedTime(String date) =>
       DateFormat("hh:mm a").format(DateTime.parse(date));
+
+  static String getGreetingMessage() {
+    final hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Good Morning';
+    } else if (hour < 17) {
+      return 'Good Afternoon';
+    } else if (hour < 21) {
+      return 'Good Evening';
+    } else {
+      return 'Good Night';
+    }
+  }
 }

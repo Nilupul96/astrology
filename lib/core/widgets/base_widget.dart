@@ -1,11 +1,9 @@
 import 'dart:ui';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../app_colors.dart';
 import '../helpers/app_logger.dart';
 import '../helpers/connectivity_manager.dart';
-import '../network/net_result.dart';
 
 class BaseWidget extends StatefulWidget {
   final Widget child;
@@ -13,12 +11,11 @@ class BaseWidget extends StatefulWidget {
   final bool isScreenDisable;
   final Function? redirectionCallback;
   const BaseWidget(
-      {Key? key,
+      {super.key,
       required this.child,
       this.retryEnable = false,
       this.isScreenDisable = false,
-      this.redirectionCallback})
-      : super(key: key);
+      this.redirectionCallback});
 
   @override
   State<BaseWidget> createState() => _BaseWidgetState();

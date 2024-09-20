@@ -1,4 +1,5 @@
 import 'package:astrology/core/app_assets.dart';
+import 'package:astrology/features/predictions/people_predictions/presentation/pages/zodiac_list_screen.dart';
 
 import 'helpers/enum.dart';
 import 'zodiac_sign_model.dart';
@@ -103,5 +104,22 @@ class AppConst {
       "planet": "Neptune",
       'type': ZodiacType.PISCES
     }
+  ];
+  static List<String> HOROSCOPE_OPTION_LIST = [
+    'Today',
+    'Tomorrow',
+    'Week',
+    'Month'
+  ];
+  static List<Map<String, dynamic>> PREDICTIONS_MENU_LIST = [
+    {
+      "name": "Personalities",
+      "image": AppAssets.cardBg,
+      "route": ZodiacSignListScreen.routeName
+    },
+    // {
+    //   "name": "Taurus",
+    //   "image": AppAssets.taurus,
+    // }
   ];
 }

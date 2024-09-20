@@ -3,7 +3,7 @@ import 'package:astrology/core/app_icons.dart';
 import 'package:astrology/core/widgets/main_btn.dart';
 import 'package:astrology/core/widgets/progress_dialog.dart';
 import 'package:astrology/core/widgets/snackbar_dialog.dart';
-import 'package:astrology/features/home/presentation/pages/home_screen.dart';
+import 'package:astrology/init_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen>
         }
         if (state is AuthSuccess) {
           progressDialog.hide();
-          context.goNamed(HomeScreen.routeName, extra: state.user);
+          context.goNamed(InitScreen.routeName, extra: state.user);
         }
         if (state is AuthError) {
           progressDialog.hide();
@@ -82,7 +82,7 @@ class _SignInScreenState extends State<SignInScreen>
                   const RSizedBox(height: 100),
                   MainBtn(
                       lbl: 'Sign In with Google',
-                      bgColor: AppColors.white.withOpacity(0.2),
+                      bgColor: AppColors.primaryYellow,
                       icon: AppIcon.googleIcon,
                       onClick: signInWithGoogle),
                   const RSizedBox(height: 100)

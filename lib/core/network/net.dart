@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'dart:io';
 import '../helpers/app_logger.dart';
 import '../helpers/local_storage.dart';
-import 'cache_network_service.dart';
 import 'net_exception.dart';
 import 'net_result.dart';
 import 'package:http/http.dart' as http;
@@ -157,7 +156,7 @@ class Net {
     request.headers.addAll(headers);
     fields ??= {};
     fields!.forEach((key, value) {
-      request.fields['$key'] = value;
+      request.fields[key] = value;
     });
     imagePathList ??= {};
     List<dynamic> data = imagePathList!.entries.cast().toList();

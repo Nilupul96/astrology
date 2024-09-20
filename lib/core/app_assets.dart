@@ -30,4 +30,6 @@ class AppAssets {
   static String get virgo => 'lib/assets/images/zodiac/virgo.png';
 
   static String get libra => 'lib/assets/images/zodiac/libra.png';
+
+  static String get cardBg => 'lib/assets/images/card-bg.png';
 }

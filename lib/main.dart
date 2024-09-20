@@ -7,6 +7,7 @@ import 'core/app_routes.dart';
 import 'core/injection_container.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/home/presentation/bloc/home_bloc.dart';
+import 'features/predictions/people_predictions/presentation/bloc/people_predictions_bloc.dart';
 import 'features/settings/presentation/bloc/settings_bloc.dart';
 
 void main() async {
@@ -17,7 +18,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
               BlocProvider<AuthBloc>(create: (context) => sl()),
               BlocProvider<SettingsBloc>(create: (context) => sl()),
               BlocProvider<HomeBloc>(create: (context) => sl()),
+              BlocProvider<PeoplePredictionsBloc>(create: (context) => sl()),
             ],
             child: MaterialApp.router(
               title: 'Template',

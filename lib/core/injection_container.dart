@@ -8,6 +8,11 @@ import '../features/auth/domain/usecases/authState_changes_usecase.dart';
 import '../features/auth/domain/usecases/sign_in_with_google.dart';
 import '../features/auth/presentation/bloc/auth_bloc.dart';
 import '../features/home/presentation/bloc/home_bloc.dart';
+import '../features/predictions/people_predictions/data/datasources/behavior_predictions_datasource.dart';
+import '../features/predictions/people_predictions/data/repositories/behavior_predictions_repository_impl.dart';
+import '../features/predictions/people_predictions/domain/repositories/behavior_prediction_repository.dart';
+import '../features/predictions/people_predictions/domain/usecases/fetch_behavior_predictions_usecase.dart';
+import '../features/predictions/people_predictions/presentation/bloc/people_predictions_bloc.dart';
 import '../features/settings/data/datasources/setting_service.dart';
 import '../features/settings/data/repositories/setting_repository_impl.dart';
 import '../features/settings/domain/repositories/settings_repository.dart';
@@ -36,4 +41,13 @@ Future<void> initializeDependencies() async {
       () => SettingRepositoryImpl(sl<SettingService>()));
   sl.registerLazySingleton<SettingService>(() => SettingServiceImpl());
   sl.registerFactory<HomeBloc>(() => HomeBloc());
+
+  sl.registerFactory<PeoplePredictionsBloc>(
+      () => PeoplePredictionsBloc(sl<FetchBehaviorPredictionsUseCase>()));
+  sl.registerLazySingleton<FetchBehaviorPredictionsUseCase>(() =>
+      FetchBehaviorPredictionsUseCase(sl<BehaviorPredictionRepository>()));
+  sl.registerLazySingleton<BehaviorPredictionRepository>(() =>
+      BehaviorPredictionsRepositoryImpl(sl<BehaviorPredictionDataSource>()));
+  sl.registerLazySingleton<BehaviorPredictionDataSource>(
+      () => BehaviorPredictionDataSourceImpl());
 }

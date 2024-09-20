@@ -63,9 +63,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 MainBtn(
                     lbl: "Sign Out",
-                    bgColor: AppColors.white.withOpacity(0.2),
+                    bgColor: AppColors.primaryYellow,
                     onClick: signOut),
-                RSizedBox(
+                const RSizedBox(
                   height: 40,
                 )
               ],

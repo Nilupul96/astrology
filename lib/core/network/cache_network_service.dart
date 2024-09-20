@@ -15,27 +15,22 @@ class CacheNetworkService extends Net {
   bool isBodyAddToKey;
 
   CacheNetworkService({
-    required String url,
-    required NetMethod method,
-    Map<String, String> queryParam = const {},
-    Map<String, String> pathParam = const {},
-    Map<String, String> headers = const {},
+    required super.url,
+    required super.method,
+    Map<String, String> super.queryParam = const {},
+    Map<String, String> super.pathParam = const {},
+    Map<String, String> super.headers = const {},
     this.isCacheEnable = false,
     this.cacheDuration = const Duration(minutes: 30),
     this.isBodyAddToKey = false,
-  }) : super(
-          url: url,
-          method: method,
-          queryParam: queryParam,
-          pathParam: pathParam,
-          headers: headers,
-        );
+  });
 
   initCacheService({required String hiveBox}) async {
     cacheService = HiveCacheManager();
     await cacheService!.init(hiveBox);
   }
 
+  @override
   Future<Result> perform() async {
     Result result = Result();
     var key = await processUrl();

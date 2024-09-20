@@ -22,7 +22,11 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.black,
       iconTheme: const IconThemeData(color: Colors.white),
       appBarTheme: AppBarTheme(
-          backgroundColor: Colors.transparent,
+          backgroundColor: AppColors.lightPurple,
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(30),
+          )),
           centerTitle: true,
           titleTextStyle:
               TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp)),
@@ -34,7 +38,7 @@ class AppTheme {
               color: AppColors.white,
               fontSize: 24.sp),
           displayMedium: TextStyle(
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w500,
               color: AppColors.white,
               fontSize: 16.sp),
           displaySmall: TextStyle(
@@ -45,7 +49,7 @@ class AppTheme {
         primaryColor: Colors.white,
       ),
       canvasColor: AppColors.lightPurple,
-      dropdownMenuTheme: DropdownMenuThemeData(),
+      dropdownMenuTheme: const DropdownMenuThemeData(),
       inputDecorationTheme: InputDecorationTheme(
           fillColor: Colors.transparent,
           focusedBorder: OutlineInputBorder(

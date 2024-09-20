@@ -13,14 +13,13 @@ class CardShimmer extends StatelessWidget {
   final bool shrinkWrap;
 
   const CardShimmer(
-      {Key? key,
+      {super.key,
       this.itemCount = 10,
       this.axis = Axis.horizontal,
       this.width = 300,
       this.padding = const EdgeInsets.only(right: 10),
       this.primary = false,
-      this.shrinkWrap = false})
-      : super(key: key);
+      this.shrinkWrap = false});
 
   @override
   Widget build(BuildContext context) {

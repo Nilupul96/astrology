@@ -12,15 +12,14 @@ class MainBtn extends StatefulWidget {
   final bool disableSplash;
 
   const MainBtn(
-      {Key? key,
+      {super.key,
       this.lbl = "",
       required this.bgColor,
       required this.onClick,
       this.isLoading = false,
       this.isEnabled = true,
       this.disableSplash = false,
-      this.icon})
-      : super(key: key);
+      this.icon});
 
   @override
   State<MainBtn> createState() => _MainBtnState();
@@ -36,7 +35,7 @@ class _MainBtnState extends State<MainBtn> {
       height: 50.h,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: !widget.isEnabled ? AppColors.bgBlue : widget.bgColor,
+            backgroundColor: !widget.isEnabled ? AppColors.bgBlue : widget.bgColor,
             elevation: 0.0,
             splashFactory: widget.disableSplash
                 ? NoSplash.splashFactory
